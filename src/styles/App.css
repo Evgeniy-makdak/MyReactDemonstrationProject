@@ -1,0 +1,17 @@
+/* Добавление стилей к компонентам осуществляется через стандартные css свойства. При этом классы в jsx обозначаются не как class в стандартном
+html/css, а как className, чтобы избежать конфликта со служебным словом class из JS. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+.App {
+    width: 800px;
+}
