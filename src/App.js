@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Counter from './components/Counter';
 import Handle from './components/Handle';
-import Post from './components/Post';
-import './styles/App.css'
+import PostItem from './components/PostItem';
+import PostList from './components/PostList';
+import './styles/App.css';
 
 // Обратите внимание, что мы можем переиспользовать компоненты по сколько угодно раз и в разных местах программы.
 // При этом эти компоненты будут работать совершенно независимо друг от друга.
 
 function App() {
+  // Для возможности работать с большим количеством постов, создадим константу с использованием хука useState, а в качестве состояния передадим
+  // массив постов и будем перебирать их с помощью функции map():
+
+  const [posts, setPosts] = useState([
+    { id: 1, title: 'first note', body: 'description' },
+    { id: 2, title: 'second note', body: 'description' },
+    { id: 3, title: 'third note', body: 'description' },
+  ]);
+
   return (
-    <div className='App'>
+    <div className="App">
       <Counter />
       <Counter />
       <Handle />
-      <Post />
+      <PostList posts={posts} title="Post's list 1" />
     </div>
   );
 }

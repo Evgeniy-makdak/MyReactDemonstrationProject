@@ -1,5 +1,6 @@
 /* Добавление стилей к компонентам осуществляется через стандартные css свойства. При этом классы в jsx обозначаются не как class в стандартном
-html/css, а как className, чтобы избежать конфликта со служебным словом class из JS. */
+html/css, а как className, чтобы избежать конфликта со служебным словом class из JS. Не забываем импортировать стили в те компоненты
+к которым они должны быть применены. */
 
 * {
     margin: 0;
@@ -14,4 +15,18 @@ html/css, а как className, чтобы избежать конфликта с
 
 .App {
     width: 800px;
+}
+
+.post {
+    display: flex;
+    padding: 16px;
+    border: 2px solid teal;
+    margin-top: 16px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainPostTitle {
+    text-align: center;
+    margin-top: 20px;
 }
