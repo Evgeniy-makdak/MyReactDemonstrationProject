@@ -4,6 +4,8 @@ import Handle from './components/Handle';
 import PostItem from './components/PostItem';
 import PostList from './components/PostList';
 import './styles/App.css';
+import MyButton from './components/UI/button/MyButton';
+import MyInput from './components/UI/button/input/MyInput';
 
 // Обратите внимание, что мы можем переиспользовать компоненты по сколько угодно раз и в разных местах программы.
 // При этом эти компоненты будут работать совершенно независимо друг от друга.
@@ -23,6 +25,11 @@ function App() {
       <Counter />
       <Counter />
       <Handle />
+      <div className="postsCreate">
+        <MyInput type="text" placeholder="post's name" />
+        <MyInput type="text" placeholder="post's description" />
+        <MyButton>create</MyButton>
+      </div>
       <PostList posts={posts} title="Post's list 1" />
     </div>
   );
