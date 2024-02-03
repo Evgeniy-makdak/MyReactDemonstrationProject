@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Counter from './components/Counter';
 import Handle from './components/Handle';
-import PostItem from './components/PostItem';
 import PostList from './components/PostList';
 import './styles/App.css';
 import MyButton from './components/UI/button/MyButton';
@@ -22,9 +21,14 @@ function App() {
 
   return (
     <div className="App">
+      *************************************************
+      <h2>Стандартные независимые счётчики:</h2>
       <Counter />
       <Counter />
+      *************************************************
+      <h2>Пример управляемого двустороннего связывания input и заголовка:</h2>
       <Handle />
+      *************************************************
       <div className="postsCreate">
         <MyInput type="text" placeholder="post's name" />
         <MyInput type="text" placeholder="post's description" />
