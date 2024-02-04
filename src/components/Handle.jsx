@@ -9,8 +9,8 @@ const Handle = () => {
 
     return (
         <div>
-            <h1>{value}</h1>
-            <input type="text"
+            <h3>{value}</h3>
+            <input className='handleInput' type="text"
             value={value}
             onChange={event => setValue(event.target.value)}
             />

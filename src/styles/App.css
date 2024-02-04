@@ -31,3 +31,6 @@ html/css, а как className, чтобы избежать конфликта с
     margin-top: 20px;
 }
 
+.handleInput {
+    margin: 16px;
+}
