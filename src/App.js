@@ -5,6 +5,7 @@ import PostList from './components/PostList';
 import './styles/App.css';
 import MyButton from './components/UI/button/MyButton';
 import MyInput from './components/UI/button/input/MyInput';
+import PostForm from './components/PostForm';
 
 // Обратите внимание, что мы можем переиспользовать компоненты по сколько угодно раз и в разных местах программы.
 // При этом эти компоненты будут работать совершенно независимо друг от друга.
@@ -27,13 +28,16 @@ function App() {
   //   { id: 3, title: 'another third note', body: 'description1' },
   // ]);
 
-  const [post, setPost] = useState({ title: '', body: '' });
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost])
+  }
 
-  const addNewPost = (e) => {
-    e.preventDefault();
-    setPosts([...posts, { ...post, id: Date.now() }]);
-    setPost({ title: '', body: '' });
-  };
+  // Реализуем функционал удаления постов. Так как мы не можем пробрасывать пропсы от дочернего компонента к родительскому,
+  // то создаём функцию обратного вызова с аргументом, вызывающим пост:
+
+  const removePost = (post) => {
+    setPosts(posts.filter(p => p.id != post.id))
+  }
 
   return (
     <div className="App">
@@ -45,24 +49,8 @@ function App() {
       <h2>Пример управляемого двустороннего связывания input и заголовка:</h2>
       <Handle />
       *************************************************
-      <div className="postsCreate">
-        <form>
-          <MyInput
-            value={post.title}
-            onChange={(e) => setPost({ ...post, title: e.target.value })}
-            type="text"
-            placeholder="post's name"
-          />
-          <MyInput
-            value={post.body}
-            onChange={(e) => setPost({ ...post, body: e.target.value })}
-            type="text"
-            placeholder="post's description"
-          />
-          <MyButton onClick={addNewPost}>create new post</MyButton>
-        </form>
-      </div>
-      <PostList posts={posts} title="Post's list 1" />
+      <PostForm create={createPost} />
+      <PostList remove={removePost} posts={posts} title="Post's list 1" />
       {/* Второй список постов:  */}
       {/* <PostList posts1={posts1} title="Post's list 2" /> */}
     </div>

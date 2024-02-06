@@ -1,4 +1,5 @@
 import React from 'react';
+import MyButton from './UI/button/MyButton';
 
 // Как видно, если данный компонент использовать многократно, то весь его контент статичен и один пост не отличается от других.
 // Исправить это можно с помощью передаваемых в аргумент функции Post входных данных(props). Эти пропсы можно передавать в корневой
@@ -13,7 +14,7 @@ const PostItem = (props) => {
           <div>{props.post.body}</div>
         </div>
         <div className="post__btns">
-            <button>delete</button>
+            <MyButton onClick={() => props.remove(props.post)}>delete</MyButton>
         </div>
       </div>
     </div>
