@@ -50,7 +50,20 @@ function App() {
       <Handle />
       *************************************************
       <PostForm create={createPost} />
-      <PostList remove={removePost} posts={posts} title="Post's list 1" />
+      {/* Чтобы при удалении всех постов было сообщение об этом, создадим "условную отрисовку, используя тернарный оператор": */}
+      <hr style={{margin: '16px 0'}}/>
+      <div>
+        <select>
+          <option value="value1">By title</option>
+          <option value="value1">By description</option>
+        </select>
+      </div>
+      {
+        posts.length != 0
+          ? <PostList remove={removePost} posts={posts} title="Post's list 1" />
+
+          : <h2 style={{textAlign: 'center'}}>No posts now</h2>
+      }
       {/* Второй список постов:  */}
       {/* <PostList posts1={posts1} title="Post's list 2" /> */}
     </div>
