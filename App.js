@@ -3,8 +3,6 @@ import Counter from './components/Counter';
 import Handle from './components/Handle';
 import PostList from './components/PostList';
 import './styles/App.css';
-import MyButton from './components/UI/button/MyButton';
-import MyInput from './components/UI/button/input/MyInput';
 import PostForm from './components/PostForm';
 
 // Обратите внимание, что мы можем переиспользовать компоненты по сколько угодно раз и в разных местах программы.
@@ -51,6 +49,13 @@ function App() {
       *************************************************
       <PostForm create={createPost} />
       {/* Чтобы при удалении всех постов было сообщение об этом, создадим "условную отрисовку, используя тернарный оператор": */}
+      <hr style={{margin: '16px 0'}}/>
+      <div>
+        <select>
+          <option value="value1">By title</option>
+          <option value="value1">By description</option>
+        </select>
+      </div>
       {
         posts.length != 0
           ? <PostList remove={removePost} posts={posts} title="Post's list 1" />
